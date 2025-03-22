@@ -1,14 +1,20 @@
-import { useContext } from "react"
-import { EventContext } from "../context/EventContext"
+import { useContext, useState } from "react"
+import { EventContext } from "../context/EventContext";
 import { NavLink } from "react-router";
 
-export const EventListForAUsers = () =>{
-    const {events} = useContext(EventContext);
-
+export const EventListForUsers = () => {
+    const { events } = useContext(EventContext);
+    const [eventToDisplay, setEventToDisplay] = useState(events)
+    const filterEvent = (e: any) => {
+        setEventToDisplay(events?.filter(e1 => e1.name.includes(e.target.value)))
+    }
     return <>
+        <h1>Our Events</h1>
+        <input type="text" onChange={filterEvent} />
         <div>
-            <h1>Our Events</h1>
-            {events?.map(e => <li key = {e.id}><NavLink to={`EventDetailsForAUser/${e.id}`}> {e.name}</NavLink></li>)}
+            {eventToDisplay?.map(event =>
+                <li key={Number(event._id)}><NavLink to={`EventListForUsers/${event._id}`}>
+                    {event.name}</NavLink></li>)}
         </div>
     </>
 }

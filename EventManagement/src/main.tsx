@@ -5,23 +5,31 @@ import App from './App.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import { EventProvider } from './context/EventContext.tsx'
 import { MainMenu } from './components/MainMenu.tsx'
+import { EventListForUsers } from './components/EventListForUsers.tsx'
 import { EventDetailsForAUser } from './components/EventDetailsForAUser.tsx'
-import { EventListForAUsers } from './components/EventListForUsers.tsx'
-
-
+import { ProducersMenu } from './components/ProducersMenu.tsx'
+import { AddingAProducer } from './components/AddingAProducer.tsx'
+import { ProducerDetails } from './components/ProducerDetails.tsx'
+import { ProducerProvider } from './context/ProducerContext.tsx'
+import { AddAnEvent } from './components/AddAnEvent.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <EventProvider>
+        <ProducerProvider>
         <MainMenu />
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route path="EventListForAUsers" element={<EventListForAUsers />}>
-              <Route path=":eventId" element={<EventDetailsForAUser />} />
+          <Routes>
+            <Route path="/" element={<App />}>
+              <Route path="EventListForUsers" element={<EventListForUsers />} />
+              <Route path="EventListForUsers/EventListForUsers/:id" element={<EventDetailsForAUser />} />
+              <Route path="ProducersMenu" element={<ProducersMenu />} />
+              <Route path="AddingAProducer" element={<AddingAProducer />} />
+              <Route path="ProducerDetails" element={<ProducerDetails />} />
+              <Route path="AddAnEvent" element={<AddAnEvent />} />
             </Route>
-          </Route>
-        </Routes>
+          </Routes>
+        </ProducerProvider>
       </EventProvider>
     </BrowserRouter>
   </StrictMode>,

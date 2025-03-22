@@ -1,10 +1,8 @@
-import { Producer } from "./Producer"
 
 export type Event = {
+    _id: String;
+    producerId: Number,
     name: string,
-    id: number,
-    producer: Producer,
     price: number,
-    hours: number
-    
+    description: string,
 }
