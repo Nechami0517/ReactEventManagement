@@ -1,0 +1,20 @@
+[
+    {
+        "name": "מנחם אברהם",
+        "email": "menachem@example.com",
+        "phone": "123-456-7890",
+        "description": "מפיק מנוסה עם ניסיון רב."
+    },
+    {
+        "name": "שלמה כהן",
+        "email": "shlomo@example.com",
+        "phone": "234-567-8901",
+        "description": "מומחה לאירועים משפחתיים."
+    },
+    {
+        "name": "אברהם יצחק",
+        "email": "avraham@example.com",
+        "phone": "345-678-9012",
+        "description": "מפיק עם סגנון ייחודי."
+    }
+]
