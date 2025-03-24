@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useHttp } from "../custom-hooks/useHttp";
@@ -15,16 +16,43 @@ export const EventDetailsForProducer = () => {
         setEvent(currentEvent);
     }, [events, id]);
 
+=======
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router"
+import { EventContext } from "../context/EventContext";
+import { Event } from "../types/Event";
+import { EditableField } from "./EditableField";
+import { useHttp } from "../custom-hooks/useHttp";
+
+export const EventDetailsForProducer = () => {
+    console.log("event");
+
+    const { id } = useParams();
+    const { data: events } = useHttp<Event[]>('/event', 'get');
+    const [event, setEvent] = useState<Event | undefined>();
+    const { request } = useHttp<Event[]>(`event/${event?._id}`, `put`);
+    useEffect(() => {
+        const currentEvent = events?.find(e => e._id == id);
+        setEvent(currentEvent);
+
+        setEvent(currentEvent);
+    }, [id])
+>>>>>>> Stashed changes
     const updateField = async (field: keyof Event, value: any) => {
         if (event) {
             const updatedEvent = { ...event, [field]: value };
             try {
                 await request(updatedEvent);
                 setEvent(updatedEvent);
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
             } catch (error) {
                 console.error("Error updating producer:", error);
             }
         }
+<<<<<<< Updated upstream
     };
 
     return (
@@ -40,3 +68,14 @@ export const EventDetailsForProducer = () => {
         </div>
     );
 };
+=======
+    }
+    return <div>
+
+        {event && <>
+        <EditableField value={event.name} setValue={(val: string) => updateField('name', val)} />
+        <EditableField value={event.description} setValue={(val: string) => updateField('description', val)} />
+        <EditableField value={event.price} setValue={(val: string) => updateField('price', val)} />
+        </>}</div>
+}
+>>>>>>> Stashed changes
