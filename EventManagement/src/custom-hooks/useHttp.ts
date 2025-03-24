@@ -16,6 +16,8 @@ export const useHttp = <T>(url: string, method: HttpMethod) => {
     const request = useCallback(async (...params: any[]) => {
         setLoading(true);
         setError(null);
+        if(method==='delete')
+            url+=`/${params[0]}`;
         try {
             const result = await axiosInstance[method]<T>(url, ...params);
             setData(result.data);

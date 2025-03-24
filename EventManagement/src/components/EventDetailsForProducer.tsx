@@ -16,7 +16,7 @@ export const EventDetailsForProducer = () => {
     }, [events, id]);
 
 
-    
+
     const updateField = async (field: keyof Event, value: any) => {
         if (event) {
             const updatedEvent = { ...event, [field]: value };
@@ -28,8 +28,6 @@ export const EventDetailsForProducer = () => {
             }
         }
     };
-
-
     
     return (
         <div>
@@ -38,7 +36,7 @@ export const EventDetailsForProducer = () => {
                 <>
                     <EditableField value={event.name} setValue={(val: string) => updateField('name', val)} />
                     <EditableField value={event.description} setValue={(val: string) => updateField('description', val)} />
-                    <EditableField value={event.price} setValue={(val: string) => updateField('price', val)} />
+                    <EditableField value={event.price} setValue={(val: Number) => updateField('price', val)} />
                 </>
             )}
         </div>

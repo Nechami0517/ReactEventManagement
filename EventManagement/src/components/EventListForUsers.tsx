@@ -12,9 +12,10 @@ export const EventListForUsers = () => {
         <h1>Our Events</h1>
         <input type="text" onChange={filterEvent} />
         <div>
-            {eventToDisplay?.map(event =>
+            {eventToDisplay?.map(event =><>
                 <li key={Number(event._id)}><NavLink to={`EventDetailsForAUser/${event._id}`}>
-                    {event.name}</NavLink></li>)}
+                    {event.name}</NavLink></li>
+                    </>)}
         </div>
     </>
 }
