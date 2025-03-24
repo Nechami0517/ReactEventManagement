@@ -27,12 +27,9 @@ createRoot(document.getElementById('root')!).render(
               <Route path="ProducersMenu" element={<ProducersMenu />} />
               <Route path="AddingAProducer" element={<AddingAProducer />} />
               <Route path="ProducerDetails" element={<ProducerDetails />} />
-<<<<<<< Updated upstream
-              {/* <Route path="ProducerDetails/AddAnEvent" element={<AddAnEvent />} /> */}
-              <Route path="ProducerDetails/EventDetailsForProducer/:id" element={<EventDetailsForProducer />} />
-=======
+
               <Route path='ProducerDetails/EventDetailsForProducer/:id' element={<EventDetailsForProducer />} />
->>>>>>> Stashed changes
+
               <Route path="AddAnEvent" element={<AddAnEvent />} />
             </Route>
           </Routes>
