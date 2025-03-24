@@ -15,6 +15,8 @@ export const EventDetailsForProducer = () => {
         setEvent(currentEvent);
     }, [events, id]);
 
+
+    
     const updateField = async (field: keyof Event, value: any) => {
         if (event) {
             const updatedEvent = { ...event, [field]: value };
