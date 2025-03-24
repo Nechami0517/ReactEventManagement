@@ -29,6 +29,8 @@ export const EventDetailsForProducer = () => {
         }
     };
 
+
+    
     return (
         <div>
             <h1>your choose:</h1>
@@ -42,3 +44,4 @@ export const EventDetailsForProducer = () => {
         </div>
     );
 };
+

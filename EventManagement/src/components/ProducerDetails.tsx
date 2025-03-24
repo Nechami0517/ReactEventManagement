@@ -1,4 +1,7 @@
-import { useContext, useState } from "react"
+
+
+import { useState } from "react"
+
 import { Producer } from "../types/Producer";
 import { Event } from "../types/Event";
 import { useHttp } from "../custom-hooks/useHttp";
@@ -7,15 +10,17 @@ import { EditableField } from "./EditableField";
 
 
 export const ProducerDetails = () => {
-
-
-
     const { data: producers } = useHttp<Producer[]>('/producer', 'get');
     const [producer, setProducer] = useState<Producer | undefined>();
     const { request } = useHttp<Producer[]>(`producer/${producer?.email}`,`put`);
-    const {data:events} =useHttp<Event[]>('/event','get');
-    const [eventsProducer,setEventsProducer]=useState<Event[] | undefined>()
+
+
+    const {data:events} = useHttp<Event[]>('/event','get');
+    const [eventsProducer,setEventsProducer] = useState<Event[] | undefined>()
+   
     const findProducerAndEvents = (e: any) => {
+
+
         const selectedProducer = producers?.find(p => p.email === e.target.email.value);
         setProducer(selectedProducer);
     
