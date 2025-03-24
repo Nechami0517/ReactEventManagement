@@ -5,7 +5,7 @@ const axiosInstance = Axios.create({
     baseURL: "http://localhost:27017",
 });
 
-type HttpMethod = 'get' | 'post' | 'put' | 'delete';
+type HttpMethod = 'get' | 'post' | `put` | 'delete';
 
 export const useHttp = <T>(url: string, method: HttpMethod) => {
     

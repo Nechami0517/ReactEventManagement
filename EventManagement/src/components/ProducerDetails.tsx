@@ -3,20 +3,32 @@ import { ProducerContext } from "../context/ProducerContext"
 import { Producer } from "../types/Producer";
 import { useHttp } from "../custom-hooks/useHttp";
 import { NavLink } from "react-router";
+import { EditableField } from "./EditableField";
 
 
 export const ProducerDetails = () => {
 
-    //chang http----------
-    //const { producers } = useContext(ProducerContext);
-    
-   const {data:producers} =useHttp<Producer[]>('/producer','get');
+
+
+    const { data: producers } = useHttp<Producer[]>('/producer', 'get');
     const [producer, setProducer] = useState<Producer | undefined>();
+    const { request } = useHttp<Producer[]>(`producer/${producer?.email}`,`put`);
 
     const findProducer = (e: any) => {
         setProducer(producers?.find(p => p.email === e.target.email.value));
     }
 
+    const updateField = async (field: keyof Producer, value: any) => {
+        if (producer) {
+            const updatedProducer = { ...producer, [field]: value };
+            try {
+                await request(updatedProducer);
+                setProducer(updatedProducer);
+            } catch (error) {
+                console.error("Error updating producer:", error);
+            }
+        }
+    }
     return <>
         {!producer && <form onSubmit={findProducer}>
             <label htmlFor="">email</label><br /><br />
@@ -25,10 +37,12 @@ export const ProducerDetails = () => {
         </form>
         }
         {producer && (
-            <><h3>{producer.name}</h3>
-            <h3>{producer.email}</h3>
-            <h3>{producer.phone}</h3>
-            <NavLink to ="AddAnEvent">add event</NavLink></>)
+            <>
+                <EditableField value={producer.name} setValue={(val: string) => updateField('name', val)} />
+                <EditableField value={producer.email} setValue={(val: string) => updateField('email', val)} />
+                <EditableField value={producer.phone} setValue={(val: string) => updateField('phone', val)} />
+                <EditableField value={producer.description} setValue={(val: string) => updateField('description', val)} />
+                <NavLink to="AddAnEvent">add event</NavLink></>)
         }
     </>
 }
