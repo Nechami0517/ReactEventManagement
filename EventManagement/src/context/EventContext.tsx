@@ -6,7 +6,6 @@ import { useHttp } from "../custom-hooks/useHttp"
 
 type EventsContextType = {
     events: Event[]
-    //updateEvent: (id: string, newEvent: Event) => void,
     refresh: () => Promise<unknown>
 }
 

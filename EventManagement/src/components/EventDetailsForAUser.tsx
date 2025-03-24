@@ -7,7 +7,7 @@ import { Producer } from "../types/Producer";
 
 export const EventDetailsForAUser = () => {
     console.log("event");
-    
+
     const { id } = useParams();
     const { events } = useContext(EventContext);
     const [event, setEvent] = useState<Event | undefined>();

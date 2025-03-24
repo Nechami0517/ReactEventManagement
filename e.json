@@ -1,38 +1,39 @@
 [
     {
-        "producerId": "1",
+        "emailProducer": "menachem@example.com",
         "name": "קונצרט א - ערב שבת מיוחד",
         "price": 100,
         "description": "קונצרט מיוחד לשבת."
     },
     {
-        "producerId": "2",
+        "emailProducer": "shlomo@example.com",
         "name": "קונצרט ב - ערב משפחתי",
         "price": 150,
         "description": "אירוע משפחתי עם כיבוד כשר."
     },
     {
-        "producerId": "3",
+        "emailProducer": "avraham@example.com",
         "name": "קונצרט ג - ערב מוזיקה יהודית",
         "price": 200,
         "description": "ערב של מוזיקה יהודית מעוררת."
     },
     {
-        "producerId": "1",
+        "emailProducer": "menachem@example.com",
         "name": "קונצרט ד - חגיגת חנוכה",
         "price": 250,
         "description": "חגגו את חנוכה עם מוזיקה ושמחה."
     },
     {
-        "producerId": "2",
+        "emailProducer": "shlomo@example.com",
         "name": "קונצרט ה - חגיגות פורים",
         "price": 300,
         "description": "קונצרט פורים חגיגי לקהילה."
     },
     {
-        "producerId": "3",
+        "emailProducer": "avraham@example.com",
         "name": "קונצרט ו - אספת סוכות",
         "price": 350,
         "description": "הצטרפו לחגיגת סוכות."
     }
+  
 ]

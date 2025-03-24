@@ -1,7 +1,7 @@
 
 export type Event = {
     _id: String;
-    producerId: Number,
+    emailProducer: String,
     name: string,
     price: number,
     description: string,

@@ -13,7 +13,7 @@ export const EventListForUsers = () => {
         <input type="text" onChange={filterEvent} />
         <div>
             {eventToDisplay?.map(event =>
-                <li key={Number(event._id)}><NavLink to={`EventListForUsers/${event._id}`}>
+                <li key={Number(event._id)}><NavLink to={`EventDetailsForAUser/${event._id}`}>
                     {event.name}</NavLink></li>)}
         </div>
     </>
