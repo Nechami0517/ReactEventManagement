@@ -25,12 +25,12 @@ createRoot(document.getElementById('root')!).render(
               <Route path="EventListForUsers" element={<EventListForUsers />} />
               <Route path="EventListForUsers/EventDetailsForAUser/:id" element={<EventDetailsForAUser />} />
               <Route path="ProducersMenu" element={<ProducersMenu />} />
-              <Route path="AddingAProducer" element={<AddingAProducer />} />
               <Route path="ProducerDetails" element={<ProducerDetails />} />
 
               <Route path='ProducerDetails/EventDetailsForProducer/:id' element={<EventDetailsForProducer />} />
 
-              <Route path="AddAnEvent" element={<AddAnEvent />} />
+              <Route path="ProducerDetails/AddAnEvent/:EmailProducer" element={<AddAnEvent />} />
+              <Route path="AddingProducer" element={<AddingAProducer />} />
             </Route>
           </Routes>
         </ProducerProvider>

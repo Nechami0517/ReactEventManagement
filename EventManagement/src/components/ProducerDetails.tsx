@@ -63,7 +63,7 @@ export const ProducerDetails = () => {
                     <EditableField value={producer.email} setValue={(val: string) => updateField('email', val)} />
                     <EditableField value={producer.phone} setValue={(val: string) => updateField('phone', val)} />
                     <EditableField value={producer.description} setValue={(val: string) => updateField('description', val)} />
-                    <NavLink to="AddAnEvent">add event</NavLink>
+                    <NavLink to={`AddAnEvent/${producer.email}`}>add event</NavLink>
                     {eventsProducer?.map(event => (
                         <div key={event._id}> {/* ודא ש-event._id הוא ייחודי */}
                             <li>
