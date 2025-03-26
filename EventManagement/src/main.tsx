@@ -25,7 +25,40 @@ createRoot(document.getElementById('root')!).render(
               <Route path="EventListForUsers" element={<EventListForUsers />} />
               <Route path="EventListForUsers/EventDetailsForAUser/:id" element={<EventDetailsForAUser />} />
               <Route path="ProducersMenu" element={<ProducersMenu />} />
-              <Route path="ProducerDetails" element={<ProducerDetails />} />
+              <Route path="ProducerDetails/:``]\]\
+              ]\
+              
+              
+              \
+              
+              
+              
+              
+               m"
+               .'
+               ;'']
+               
+               '\
+               
+               
+               
+               
+               
+               
+               
+               
+                -+-++
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                ' element={<ProducerDetails />} />
 
               <Route path='ProducerDetails/EventDetailsForProducer/:id' element={<EventDetailsForProducer />} />
 
