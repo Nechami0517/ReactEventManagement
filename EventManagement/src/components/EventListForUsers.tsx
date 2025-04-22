@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { EventContext } from "../context/EventContext";
 import { NavLink } from "react-router";
+// import '../styles/user.css';
 
 export const EventListForUsers = () => {
     const { events } = useContext(EventContext);

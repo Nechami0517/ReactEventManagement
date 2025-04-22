@@ -1,8 +1,11 @@
-import { NavLink } from "react-router"
+import { NavLink } from "react-router";
+// import "../styles/MainMenu.css";
 
-export const MainMenu=()=>{
-    return <><br /><br /><br />
-    <NavLink to="/EventListForUsers">user</NavLink><br /><br /><br /><br />
-    <NavLink to="/ProducersMenu">producer</NavLink><br /><br /><br /><br />
-    </>
+export const MainMenu = () => {
+    return (
+        <div className="menu-container">
+            <NavLink className="menu-link" to="/EventListForUsers">user</NavLink>
+            <NavLink className="menu-link" to="/ProducersMenu">producer</NavLink>
+        </div>
+    );
 }

@@ -3,12 +3,14 @@ import { useParams } from "react-router";
 import { useHttp } from "../custom-hooks/useHttp";
 import { EditableField } from "./EditableField";
 import { Event } from "../types/Event";
+import { useNavigate } from 'react-router-dom';
 
 export const EventDetailsForProducer = () => {
     const { id } = useParams();
     const { data: events } = useHttp<Event[]>('/event', 'get');
     const [event, setEvent] = useState<Event | undefined>();
     const { request } = useHttp<Event[]>(`event/${event?._id}`, 'put');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const currentEvent = events?.find(e => e._id === id);
@@ -28,7 +30,10 @@ export const EventDetailsForProducer = () => {
             }
         }
     };
-    
+
+    const update = async () => {
+        navigate('/ProducerDetails', { replace: true });
+    }
     return (
         <div>
             <h1>your choose:</h1>
@@ -37,6 +42,7 @@ export const EventDetailsForProducer = () => {
                     <EditableField value={event.name} setValue={(val: string) => updateField('name', val)} />
                     <EditableField value={event.description} setValue={(val: string) => updateField('description', val)} />
                     <EditableField value={event.price} setValue={(val: Number) => updateField('price', val)} />
+                    <button onClick={update}>Update</button>
                 </>
             )}
         </div>

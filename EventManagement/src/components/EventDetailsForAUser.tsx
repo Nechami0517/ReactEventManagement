@@ -2,9 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { EventContext } from "../context/EventContext";
 import { Event } from "../types/Event";
-import { ProducerContext } from "../context/ProducerContext";
 import { Producer } from "../types/Producer";
-
+import { useHttp } from "../custom-hooks/useHttp";
 export const EventDetailsForAUser = () => {
     console.log("event");
 
@@ -12,7 +11,7 @@ export const EventDetailsForAUser = () => {
     const { events } = useContext(EventContext);
     const [event, setEvent] = useState<Event | undefined>();
 
-    const { producers } = useContext(ProducerContext);
+    const { data: producers } = useHttp<Producer[]>('/producer', 'get');
     const [producer, setProducer] = useState<Producer | undefined>();
     useEffect(() => {
         const currentEvent = events?.find(e => e._id == id);

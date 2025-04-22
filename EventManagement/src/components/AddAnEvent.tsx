@@ -4,11 +4,11 @@ import { useParams } from "react-router";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-export const AddAnEvent = () => {
+export const AddAnEvent = (email : any) => {
     const { request } = useHttp<Event>(`event`, "post");
     const { EmailProducer } = useParams();
     const navigate = useNavigate();
-
+    
     // הגדרת state עבור השדות
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
@@ -25,7 +25,7 @@ export const AddAnEvent = () => {
             }
             const answer = await request(newEvent);
             if (answer) {
-                                setName('');
+                setName('');
                 setPrice('');
                 setDescription('');
             }
